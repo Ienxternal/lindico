@@ -45,7 +45,10 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
           className="text-lg leading-none tracking-[0.08em] text-current md:text-xl"
           whileHover={{ scale: 1.05 }}
         >
-          <a href={isAboutPage ? '/' : '#top'} className="block font-serif uppercase">
+          <a
+            href={isAboutPage ? "/" : "#top"}
+            className="block font-serif uppercase"
+          >
             LindiCo
           </a>
         </motion.div>
@@ -67,7 +70,7 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
         </div>
 
         <motion.a
-          href="/portal"
+          href="https://lindico-portal.pages.dev"
           whileHover={{ y: -1 }}
           whileTap={{ scale: 0.98 }}
           className="hidden mr-4 text-[10px] uppercase tracking-[0.18em] text-white/72 transition-colors hover:text-white md:inline-flex"
@@ -76,7 +79,7 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
         </motion.a>
 
         <motion.a
-          href={isAboutPage ? '/#contact' : '#contact'}
+          href={isAboutPage ? "/#contact" : "#contact"}
           whileHover={{ y: -1 }}
           whileTap={{ scale: 0.98 }}
           className="group relative hidden items-center md:inline-flex"
@@ -114,14 +117,7 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
               </a>
             ))}
             <a
-              href="/portal"
-              className="text-base uppercase tracking-[0.18em] text-white"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Client Portal
-            </a>
-            <a
-              href={isAboutPage ? '/#contact' : '#contact'}
+              href={isAboutPage ? "/#contact" : "#contact"}
               className="inline-flex w-fit border border-white/35 px-5 py-3 text-[11px] uppercase tracking-[0.18em] text-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -133,3 +129,5 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
     </motion.nav>
   );
 }
+
+

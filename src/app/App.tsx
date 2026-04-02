@@ -9,7 +9,6 @@ import { Automation } from './components/Automation';
 import { Contact } from './components/Contact';
 import { AboutPage } from './components/AboutPage';
 import { Footer } from './components/Footer';
-import PortalApp from './portal/App';
 
 export default function App() {
   const [pathname, setPathname] = useState(window.location.pathname);
@@ -39,42 +38,25 @@ export default function App() {
   }, []);
 
   const isAboutPage = pathname === '/about';
-  const isPortalRoute =
-    pathname.startsWith('/portal') ||
-    pathname.startsWith('/admin') ||
-    pathname.startsWith('/sign-in') ||
-    pathname.startsWith('/sign-up') ||
-    pathname.startsWith('/accept-invite');
-
   return (
-    <div
-      className={
-        isPortalRoute
-          ? 'portal-host min-h-screen'
-          : 'min-h-screen bg-[#f4efe6] text-[#1d1b18]'
-      }
-    >
-      {isPortalRoute ? (
-        <PortalApp />
-      ) : (
-        <>
-          <Navigation isAboutPage={isAboutPage} />
-          {isAboutPage ? (
-            <AboutPage />
-          ) : (
-            <>
-              <Hero />
-              <AboutIntro />
-              <Services />
-              <Projects />
-              <Process />
-              <Automation />
-              <Contact />
-            </>
-          )}
-          <Footer />
-        </>
-      )}
+    <div className="min-h-screen bg-[#f4efe6] text-[#1d1b18]">
+      <>
+        <Navigation isAboutPage={isAboutPage} />
+        {isAboutPage ? (
+          <AboutPage />
+        ) : (
+          <>
+            <Hero />
+            <AboutIntro />
+            <Services />
+            <Projects />
+            <Process />
+            <Automation />
+            <Contact />
+          </>
+        )}
+        <Footer />
+      </>
     </div>
   );
 }
