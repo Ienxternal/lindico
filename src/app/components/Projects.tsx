@@ -50,29 +50,29 @@ export function Projects() {
       className="bg-[#201c17] py-28 text-[#f4efe6]"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <motion.div
-          style={{ y: sectionY }}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-20 max-w-3xl"
-        >
-          <div className="inline-flex items-center gap-3">
-            <span className="h-px w-5 bg-[#6e6255]" />
-            <p className="text-sm uppercase tracking-[0.24em] text-[#b6a792]">
-              Signature Work
+        <motion.div style={{ y: sectionY }} className="mb-20 max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center gap-3">
+              <span className="h-px w-5 bg-[#6e6255]" />
+              <p className="text-sm uppercase tracking-[0.24em] text-[#b6a792]">
+                Signature Work
+              </p>
+              <span className="h-px w-5 bg-[#6e6255]" />
+            </div>
+            <h2 className="mb-5 mt-5 text-4xl tracking-[-0.04em] text-[#f4efe6] md:text-6xl font-serif">
+              Spaces that feel tailored, restrained, and deeply livable.
+            </h2>
+            <p className="text-lg leading-8 text-[#cbbfaa]">
+              The strongest luxury work balances architecture, materiality, and
+              experience. These featured concepts show the tone the site should
+              lead with.
             </p>
-            <span className="h-px w-5 bg-[#6e6255]" />
-          </div>
-          <h2 className="mb-5 mt-5 text-4xl tracking-[-0.04em] text-[#f4efe6] md:text-6xl font-serif">
-            Spaces that feel tailored, restrained, and deeply livable.
-          </h2>
-          <p className="text-lg leading-8 text-[#cbbfaa]">
-            The strongest luxury work balances architecture, materiality, and
-            experience. These featured concepts show the tone the site should
-            lead with.
-          </p>
+          </motion.div>
         </motion.div>
 
         <div className="space-y-24">
@@ -174,4 +174,3 @@ export function Projects() {
     </section>
   );
 }
-

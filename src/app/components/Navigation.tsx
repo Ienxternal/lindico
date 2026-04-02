@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 type NavigationProps = {
-  isAboutPage?: boolean;
+  pathname?: string;
 };
 
-export function Navigation({ isAboutPage = false }: NavigationProps) {
+export function Navigation({ pathname = '/' }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     return scrollY.on('change', (latest) => {
@@ -18,10 +19,10 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
   }, [scrollY]);
 
   const navItems = [
-    { label: 'Services', href: isAboutPage ? '/#services' : '#services' },
-    { label: 'Projects', href: isAboutPage ? '/#projects' : '#projects' },
-    { label: 'Process', href: isAboutPage ? '/#process' : '#process' },
-    { label: 'Automation', href: isAboutPage ? '/#automation' : '#automation' },
+    { label: 'Services', href: isHomePage ? '#services' : '/#services' },
+    { label: 'Projects', href: isHomePage ? '#projects' : '/#projects' },
+    { label: 'Process', href: isHomePage ? '#process' : '/#process' },
+    { label: 'Automation', href: isHomePage ? '#automation' : '/#automation' },
     { label: 'About Us', href: '/about' },
   ];
 
@@ -46,7 +47,7 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
           whileHover={{ scale: 1.05 }}
         >
           <a
-            href={isAboutPage ? "/" : "#top"}
+            href={isHomePage ? "#top" : "/"}
             className="block font-serif uppercase"
           >
             LindiCo
@@ -79,7 +80,7 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
         </motion.a>
 
         <motion.a
-          href={isAboutPage ? "/#contact" : "#contact"}
+          href={isHomePage ? "#contact" : "/#contact"}
           whileHover={{ y: -1 }}
           whileTap={{ scale: 0.98 }}
           className="group relative hidden items-center md:inline-flex"
@@ -117,7 +118,7 @@ export function Navigation({ isAboutPage = false }: NavigationProps) {
               </a>
             ))}
             <a
-              href={isAboutPage ? "/#contact" : "#contact"}
+              href={isHomePage ? "#contact" : "/#contact"}
               className="inline-flex w-fit border border-white/35 px-5 py-3 text-[11px] uppercase tracking-[0.18em] text-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >

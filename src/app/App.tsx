@@ -9,6 +9,8 @@ import { Automation } from './components/Automation';
 import { Contact } from './components/Contact';
 import { AboutPage } from './components/AboutPage';
 import { Footer } from './components/Footer';
+import { ServiceDetailPage } from './components/ServiceDetailPage';
+import { findServiceBySlug } from './content/services';
 
 export default function App() {
   const [pathname, setPathname] = useState(window.location.pathname);
@@ -38,12 +40,19 @@ export default function App() {
   }, []);
 
   const isAboutPage = pathname === '/about';
+  const serviceSlug = pathname.startsWith('/services/')
+    ? pathname.replace('/services/', '').replace(/\/$/, '')
+    : null;
+  const activeService = serviceSlug ? findServiceBySlug(serviceSlug) : null;
+
   return (
     <div className="min-h-screen bg-[#f4efe6] text-[#1d1b18]">
       <>
-        <Navigation isAboutPage={isAboutPage} />
+        <Navigation pathname={pathname} />
         {isAboutPage ? (
           <AboutPage />
+        ) : activeService ? (
+          <ServiceDetailPage service={activeService} />
         ) : (
           <>
             <Hero />
