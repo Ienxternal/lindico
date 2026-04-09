@@ -36,7 +36,7 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
       }`}
     >
       <div
-        className={`mx-auto flex max-w-[1600px] items-center justify-between border-b px-6 py-3 md:px-8 md:py-2.5 ${
+        className={`relative mx-auto flex max-w-[1600px] items-center justify-between border-b px-6 py-3 md:px-8 md:py-2.5 ${
           isScrolled
             ? "border-white/12 text-[#f4efe6]"
             : "border-white/18 text-[#f4efe6]"
@@ -46,15 +46,12 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
           className="text-lg leading-none tracking-[0.08em] text-current md:text-xl"
           whileHover={{ scale: 1.05 }}
         >
-          <a
-            href={isHomePage ? "#top" : "/"}
-            className="block font-serif uppercase"
-          >
+          <a href="/" className="block font-serif uppercase">
             LindiCo
           </a>
         </motion.div>
 
-        <div className="hidden flex-1 justify-center md:flex">
+        <div className="absolute left-1/2 hidden -translate-x-1/2 md:flex">
           <div className="flex items-center gap-10">
             {navItems.map((item) => (
               <motion.a
@@ -70,25 +67,33 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
           </div>
         </div>
 
-        <motion.a
-          href="https://lindico-portal.pages.dev"
-          whileHover={{ y: -1 }}
-          whileTap={{ scale: 0.98 }}
-          className="hidden mr-4 text-[10px] uppercase tracking-[0.18em] text-white/72 transition-colors hover:text-white md:inline-flex"
-        >
-          Client Portal
-        </motion.a>
+        <div className="hidden items-center gap-2 md:flex">
+          <motion.a
+            href="https://lindico-portal.pages.dev"
+            whileHover={{ y: -1 }}
+            whileTap={{ scale: 0.98 }}
+            className="group relative inline-flex h-[38px] items-center justify-center px-4 text-[10px] uppercase tracking-[0.18em] text-white/72 transition-colors hover:text-white"
+          >
+            <span className="pointer-events-none absolute inset-0">
+              <span className="absolute left-0 top-0 h-px w-0 bg-white/55 transition-all duration-500 group-hover:w-full" />
+              <span className="absolute left-0 top-0 h-0 w-px bg-white/55 transition-all duration-500 group-hover:h-full" />
+              <span className="absolute bottom-0 right-0 h-px w-0 bg-white/55 transition-all duration-500 delay-100 group-hover:w-full" />
+              <span className="absolute bottom-0 right-0 h-0 w-px bg-white/55 transition-all duration-500 delay-100 group-hover:h-full" />
+            </span>
+            <span className="relative">Client Portal</span>
+          </motion.a>
 
-        <motion.a
-          href={isHomePage ? "#contact" : "/#contact"}
-          whileHover={{ y: -1 }}
-          whileTap={{ scale: 0.98 }}
-          className="group relative hidden items-center md:inline-flex"
-        >
-          <span className="relative inline-flex items-center border border-white/28 bg-white/[0.02] px-5 py-2.5 text-[10px] uppercase tracking-[0.18em] text-white transition-all duration-300 group-hover:border-white/55 group-hover:bg-white/10">
-            Contact Us
-          </span>
-        </motion.a>
+          <motion.a
+            href={isHomePage ? "#contact" : "/#contact"}
+            whileHover={{ y: -1 }}
+            whileTap={{ scale: 0.98 }}
+            className="group relative inline-flex h-[38px] items-center justify-center"
+          >
+            <span className="relative inline-flex h-full items-center border border-white/28 bg-white/[0.02] px-4 text-[10px] uppercase tracking-[0.18em] text-white transition-all duration-300 group-hover:border-white/55 group-hover:bg-white/10">
+              Contact Us
+            </span>
+          </motion.a>
+        </div>
 
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -130,5 +135,3 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
     </motion.nav>
   );
 }
-
-

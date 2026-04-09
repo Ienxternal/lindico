@@ -22,6 +22,13 @@ export function Footer() {
           >
             Terms of Service
           </motion.a>
+          <motion.a
+            href="/developer"
+            whileHover={{ color: '#1d1b18' }}
+            className="transition-colors"
+          >
+            Developer
+          </motion.a>
         </div>
         <div className="text-sm text-[#7e6f5f]">
           © 2026 LindiCo. All rights reserved.

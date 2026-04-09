@@ -1,14 +1,14 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { ArrowUpRight, Cpu, Hammer, Home, Trees } from 'lucide-react';
-import { services } from '../content/services';
+import { services, type ServiceSlug } from '../content/services';
 
-const serviceIcons = {
+const serviceIcons: Record<ServiceSlug, typeof Home> = {
   'bespoke-concept-design': Home,
   'luxury-remodels-builds': Hammer,
   'outdoor-living-decks': Trees,
   'smart-home-integration': Cpu,
-} as const;
+};
 
 export function Services() {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,12 +44,15 @@ export function Services() {
                 <span className="h-px w-5 bg-[#b6a58e]" />
               </div>
               <h2 className="mt-5 text-4xl leading-tight tracking-[-0.04em] text-[#1d1b18] md:text-6xl font-serif">
-                A cleaner, more complete approach to luxury residential work no matter the scale.
+                A cleaner, more complete approach to exceptional design and
+                build—no matter the scale.
               </h2>
               <p className="mt-6 text-lg leading-8 text-[#584d42]">
-                We design with restraint, build with discipline, and integrate
-                systems so homes feels effortless rather than
-                overdone. Whether it's a whole-home remodel or a small addition, we bring the same level of care and attention to every project.
+                We design with intent, build with discipline, and integrate
+                systems so environments feel effortless rather than
+                overdone. Whether it's a complete residential transformation, a tailored
+                addition, or a carefully considered commercial space, we bring
+                the same level of care and attention to every project.
               </p>
               <div className="mt-10 grid gap-4 border-l border-[#d4c7b5] pl-6 text-sm uppercase tracking-[0.18em] text-[#6a5c4d]">
                 <span>Concept to construction</span>
@@ -98,7 +101,7 @@ export function Services() {
                   </p>
                   <div className="group/cta mt-auto flex items-center justify-between gap-4 border-t border-[#d8ccbc] pt-5 opacity-0 translate-y-2 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
                     <span className="text-[10px] uppercase tracking-[0.24em] text-[#8c7c69]">
-                      Explore This Experience
+                      Explore This Service
                     </span>
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#cdbca7] bg-transparent text-[#2f2821] transition-all duration-500 group-hover:border-[#8c7c69] group-focus-within:border-[#8c7c69] group-hover/cta:bg-[#201c17] group-hover/cta:text-[#f4efe6] group-focus-within/cta:bg-[#201c17] group-focus-within/cta:text-[#f4efe6]">
                       <ArrowUpRight size={16} />

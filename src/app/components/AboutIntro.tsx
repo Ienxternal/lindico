@@ -28,20 +28,22 @@ export function AboutIntro() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <p className="text-2xl leading-[1.45] tracking-[-0.02em] text-[#2b2621] md:text-3xl font-serif">
+            <p className="text-2xl font-serif leading-[1.45] tracking-[-0.02em] text-[#2b2621] md:text-3xl">
               Synergistic by Design, Driven by Your Vision
             </p>
-            <p className="mt-2 text-lg leading-8 text-[#5d5145]">
-              Your home is a reflection of what you value. Every line, every
-              material, every detail should feel considered and intentional. As you move through your space, it should invoke a natural sense of certainty, 
-              knowing nothing was overlooked. You chose this home because it
-              meant something to you.
+            <div className="mt-2 space-y-4 text-lg leading-8 text-[#5d5145]">
               <p>
-                Anyone entrusted to curate it should share this and your vision every
-                step of the way.
+                Your home is a reflection of what you value. Every line, every
+                material, every detail should feel intentional and considered.
+                As you move through your space, it should inspire a natural
+                sense of certainty—knowing nothing was overlooked.
               </p>
-              We believe in that.
-            </p>
+              <p>
+                Those entrusted to curate your space should share the same
+                vision and value.
+              </p>
+              <p>A tenet we live by.</p>
+            </div>
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
                 href="/about"
@@ -56,7 +58,6 @@ export function AboutIntro() {
     </section>
   );
 }
-
 
 
 

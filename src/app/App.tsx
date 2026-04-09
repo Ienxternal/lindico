@@ -8,7 +8,9 @@ import { Process } from './components/Process';
 import { Automation } from './components/Automation';
 import { Contact } from './components/Contact';
 import { AboutPage } from './components/AboutPage';
+import { DeveloperPage } from './components/DeveloperPage';
 import { Footer } from './components/Footer';
+import { ScrollToTopTab } from './components/ScrollToTopTab';
 import { ServiceDetailPage } from './components/ServiceDetailPage';
 import { findServiceBySlug } from './content/services';
 
@@ -40,6 +42,7 @@ export default function App() {
   }, []);
 
   const isAboutPage = pathname === '/about';
+  const isDeveloperPage = pathname === '/developer';
   const serviceSlug = pathname.startsWith('/services/')
     ? pathname.replace('/services/', '').replace(/\/$/, '')
     : null;
@@ -51,6 +54,8 @@ export default function App() {
         <Navigation pathname={pathname} />
         {isAboutPage ? (
           <AboutPage />
+        ) : isDeveloperPage ? (
+          <DeveloperPage />
         ) : activeService ? (
           <ServiceDetailPage service={activeService} />
         ) : (
@@ -64,6 +69,7 @@ export default function App() {
             <Contact />
           </>
         )}
+        <ScrollToTopTab />
         <Footer />
       </>
     </div>

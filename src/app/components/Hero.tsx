@@ -25,7 +25,7 @@ export function Hero() {
           style={{
             backgroundImage:
               "linear-gradient(180deg, rgba(18,16,14,0.34) 0%, rgba(18,16,14,0.18) 18%, rgba(18,16,14,0.12) 38%, rgba(18,16,14,0.38) 68%, rgba(18,16,14,0.72) 100%), radial-gradient(circle at center, rgba(20,18,16,0.42) 0%, rgba(20,18,16,0.2) 28%, rgba(20,18,16,0.06) 52%, rgba(20,18,16,0) 72%), url('https://images.pexels.com/photos/7031413/pexels-photo-7031413.jpeg')",
-            backgroundPosition: 'center center',
+            backgroundPosition: "center center",
           }}
         />
       </motion.div>
@@ -44,7 +44,7 @@ export function Hero() {
             className="max-w-4xl text-center"
           >
             <p className="mb-5 text-[11px] uppercase tracking-[0.28em] text-[#e7dbc8]/78 md:mb-6">
-              Luxury Design-Build Studio
+              Design & Build Collective
             </p>
             <h1 className="text-[3.2rem] leading-[0.9] tracking-[-0.05em] text-white sm:text-[4.2rem] md:text-[6.2rem] lg:text-[7.4rem] font-serif">
               Luxury,
@@ -52,7 +52,8 @@ export function Hero() {
               Defined by You.
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-sm uppercase tracking-[0.22em] text-[#e8dcc9]/82 md:text-[15px]">
-              Custom Homes + Luxury Remodels + Outdoor Living + Home Automation
+              Refined Architecture + Tailored Remodels + Outdoor Living + Smart
+              Integration
             </p>
             <div className="mt-8 flex justify-center">
               <motion.a
@@ -68,7 +69,7 @@ export function Hero() {
           </motion.div>
         </div>
       </motion.div>
-
     </section>
   );
 }
+

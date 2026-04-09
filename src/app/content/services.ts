@@ -1,5 +1,11 @@
+export type ServiceSlug =
+  | 'bespoke-concept-design'
+  | 'luxury-remodels-builds'
+  | 'outdoor-living-decks'
+  | 'smart-home-integration';
+
 export type ServiceDetail = {
-  slug: string;
+  slug: ServiceSlug;
   number: string;
   title: string;
   shortDescription: string;
