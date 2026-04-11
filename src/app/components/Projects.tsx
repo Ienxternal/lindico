@@ -105,28 +105,29 @@ export function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className={`grid gap-10 border-t border-[#4b4238] pt-10 md:grid-cols-2 ${
+                className={`group grid gap-10 border-t border-[#4b4238] pt-10 md:grid-cols-2 ${
                   index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                <motion.div
-                  className="relative h-[520px] overflow-hidden"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.6 }}
-                >
+                <div className="relative h-[520px] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_24px_54px_rgba(0,0,0,0.24)]">
                   <span className="pointer-events-none absolute left-5 top-5 z-10 h-5 w-5 border-l border-t border-white/35" />
                   <span className="pointer-events-none absolute bottom-5 right-5 z-10 h-5 w-5 border-b border-r border-white/35" />
                   <span className="pointer-events-none absolute left-0 top-12 z-10 h-px w-10 bg-white/25" />
                   <span className="pointer-events-none absolute right-0 bottom-12 z-10 h-px w-10 bg-white/25" />
-                  <motion.div style={{ y: imageY }} className="h-full w-full">
-                    <img
+                  <motion.div
+                    style={{ y: imageY }}
+                    whileHover={{ scale: 1.025 }}
+                    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                    className="h-full w-full [will-change:transform]"
+                  >
+                    <motion.img
                       src={project.image}
                       alt={project.title}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover [backface-visibility:hidden] [transform:translateZ(0)]"
                     />
                   </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#201c17]/50 via-transparent to-transparent" />
-                </motion.div>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#201c17]/50 via-transparent to-transparent" />
+                </div>
 
                 <motion.div
                   style={{ y: contentY }}

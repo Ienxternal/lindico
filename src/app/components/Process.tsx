@@ -75,18 +75,21 @@ export function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, delay: index * 0.1 }}
-                className="grid gap-6 bg-[#fbf8f2] p-8 md:grid-cols-[140px_1fr]"
+                className="group relative bg-[#fbf8f2]"
               >
-                <div className="text-sm uppercase tracking-[0.22em] text-[#8c7c69]">
-                  Step {step.number}
-                </div>
-                <div>
-                  <h3 className="text-3xl tracking-[-0.03em] text-[#1d1b18] font-serif">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 max-w-2xl text-base leading-7 text-[#5c5146]">
-                    {step.description}
-                  </p>
+                <span className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 bg-[#b6a58e] opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100" />
+                <div className="grid gap-6 p-8 transition-transform duration-150 ease-out will-change-transform group-hover:translate-x-[5px] md:grid-cols-[140px_1fr]">
+                  <div className="text-sm uppercase tracking-[0.22em] text-[#8c7c69]">
+                    Step {step.number}
+                  </div>
+                  <div>
+                    <h3 className="text-3xl tracking-[-0.03em] text-[#1d1b18] font-serif">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 max-w-2xl text-base leading-7 text-[#5c5146]">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -96,6 +99,3 @@ export function Process() {
     </section>
   );
 }
-
-
-

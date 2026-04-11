@@ -83,16 +83,19 @@ export function Automation() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="flex gap-4 bg-[#f8f3ea] p-5"
+                    className="group relative bg-[#f8f3ea]"
                   >
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#d4c7b5] bg-[#efe5d8]">
-                      <feature.icon className="h-5 w-5 text-[#2d2822]" />
-                    </div>
-                    <div>
-                      <h4 className="mb-1 text-lg text-[#1f1b17]">
-                        {feature.title}
-                      </h4>
-                      <p className="text-[#63574b]">{feature.description}</p>
+                    <span className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 bg-[#b6a58e] opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100" />
+                    <div className="flex gap-4 p-5 transition-transform duration-150 ease-out will-change-transform group-hover:translate-x-[5px]">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#d4c7b5] bg-[#efe5d8]">
+                        <feature.icon className="h-5 w-5 text-[#2d2822]" />
+                      </div>
+                      <div>
+                        <h4 className="mb-1 text-lg text-[#1f1b17]">
+                          {feature.title}
+                        </h4>
+                        <p className="text-[#63574b]">{feature.description}</p>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
