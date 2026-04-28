@@ -33,7 +33,7 @@ export function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
             className="max-w-5xl"
           >
             <div className="inline-flex items-center gap-3">
@@ -61,7 +61,7 @@ export function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="inline-flex items-center gap-3">
               <span className="h-px w-10 bg-[#b6a58e]" />
@@ -78,7 +78,7 @@ export function AboutPage() {
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
             className="space-y-6 text-lg leading-8 text-[#5d5145]"
           >
             <p>
@@ -111,7 +111,7 @@ export function AboutPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
+              transition={{ ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="inline-flex items-center gap-3">
                 <span className="h-px w-10 bg-[#b6a58e]" />
@@ -131,7 +131,7 @@ export function AboutPage() {
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.08 }}
+                  transition={{ delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   className="bg-[#fbf8f2] p-8"
                 >
                   <p className="text-sm uppercase tracking-[0.18em] text-[#8c7c69]">
@@ -162,7 +162,7 @@ export function AboutPage() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
+                transition={{ delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 className="grid gap-5 bg-[#fbf8f2] p-8 md:grid-cols-[220px_1fr]"
               >
                 <p className="text-sm uppercase tracking-[0.18em] text-[#8c7c69]">

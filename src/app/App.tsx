@@ -12,6 +12,7 @@ import { DeveloperPage } from './components/DeveloperPage';
 import { Footer } from './components/Footer';
 import { ScrollToTopTab } from './components/ScrollToTopTab';
 import { ServiceDetailPage } from './components/ServiceDetailPage';
+import { PortalInfoPage } from './components/PortalInfoPage';
 import { findServiceBySlug } from './content/services';
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
 
   const isAboutPage = pathname === '/about';
   const isDeveloperPage = pathname === '/developer';
+  const isPortalInfoPage = pathname === '/client-portal-info';
   const serviceSlug = pathname.startsWith('/services/')
     ? pathname.replace('/services/', '').replace(/\/$/, '')
     : null;
@@ -56,6 +58,8 @@ export default function App() {
           <AboutPage />
         ) : isDeveloperPage ? (
           <DeveloperPage />
+        ) : isPortalInfoPage ? (
+          <PortalInfoPage />
         ) : activeService ? (
           <ServiceDetailPage service={activeService} />
         ) : (

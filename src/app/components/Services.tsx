@@ -172,6 +172,10 @@ export function Services() {
             {services.map((service, index) => {
               const Icon = serviceIcons[service.slug];
               const isVisible = visibleCards.includes(index);
+              const usesLighterSurface =
+                service.slug === "luxury-remodels-builds" ||
+                service.slug === "outdoor-living-decks" ||
+                service.slug === "smart-home-integration";
               const backgroundImage =
                 service.slug === "bespoke-concept-design"
                   ? {
@@ -209,8 +213,8 @@ export function Services() {
                   data-service-card
                   data-card-index={index}
                   className={[
-                    "group relative bg-[#fbf8f2] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                    "hover:bg-[#f3ebde]",
+                    "group relative transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                    usesLighterSurface ? "bg-[#fcfbf7] hover:bg-[#f7f4ed]" : "bg-[#fbf8f2] hover:bg-[#f3ebde]",
                     isVisible
                       ? "translate-y-0 opacity-100"
                       : "translate-y-12 opacity-0",

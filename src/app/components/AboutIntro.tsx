@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function AboutIntro() {
@@ -9,7 +10,7 @@ export function AboutIntro() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
             className="pt-1"
           >
             <div className="inline-flex items-center gap-3">
@@ -25,7 +26,7 @@ export function AboutIntro() {
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
             className="max-w-3xl"
           >
             <p className="text-2xl font-serif leading-[1.45] tracking-[-0.02em] text-[#2b2621] md:text-3xl">
@@ -47,9 +48,10 @@ export function AboutIntro() {
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
                 href="/about"
-                className="inline-flex items-center justify-center border border-[#201c17] px-5 py-3 text-xs uppercase tracking-[0.18em] text-[#201c17] transition-colors hover:bg-[#201c17] hover:text-[#f4efe6]"
+                className="inline-flex items-center justify-center gap-2 border border-[#201c17] px-5 py-3 text-xs uppercase tracking-[0.18em] text-[#201c17] transition-colors hover:bg-[#201c17] hover:text-[#f4efe6]"
               >
-                Learn More About how we do it.
+                Learn More About how we do it
+                <ArrowUpRight size={15} />
               </a>
             </div>
           </motion.div>
@@ -58,9 +60,4 @@ export function AboutIntro() {
     </section>
   );
 }
-
-
-
-
-
 

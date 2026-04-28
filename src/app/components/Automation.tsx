@@ -57,7 +57,7 @@ export function Automation() {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="inline-flex items-center gap-3">
                 <span className="h-px w-5 bg-[#baa993]" />
@@ -72,7 +72,7 @@ export function Automation() {
               <p className="mb-12 text-lg leading-8 text-[#5a4f44]">
                 The most sophisticated automation is nearly invisible. We plan
                 systems around daily routines, architecture, and ease of use so
-                the result feels elegant instead of over-engineered.
+                the result feels elegant instead of over-engineered and overbearing.
               </p>
 
               <div className="grid gap-px bg-[#cdbda8]">
@@ -82,7 +82,7 @@ export function Automation() {
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
                     className="group relative bg-[#f8f3ea]"
                   >
                     <span className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 bg-[#b6a58e] opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100" />
@@ -108,7 +108,7 @@ export function Automation() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
             <div className="relative h-[620px] overflow-hidden border border-[#cdbda8]">

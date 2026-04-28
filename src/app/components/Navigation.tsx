@@ -11,6 +11,7 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const isHomePage = pathname === '/';
+  const isPortalInfoPage = pathname === '/client-portal-info';
 
   useEffect(() => {
     return scrollY.on('change', (latest) => {
@@ -20,7 +21,7 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
 
   const navItems = [
     { label: 'Services', href: isHomePage ? '#services' : '/#services' },
-    { label: 'Projects', href: isHomePage ? '#projects' : '/#projects' },
+    { label: 'Collections', href: isHomePage ? '#collections' : '/#collections' },
     { label: 'Process', href: isHomePage ? '#process' : '/#process' },
     { label: 'Automation', href: isHomePage ? '#automation' : '/#automation' },
     { label: 'About Us', href: '/about' },
@@ -30,14 +31,16 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ ease: [0.22, 1, 0.36, 1] }}
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-1200 ${
-        isScrolled ? "bg-[#201c17]/78 backdrop-blur-md" : "bg-[#7e7e7e6e]"
+        isPortalInfoPage || isScrolled
+          ? 'bg-[#201c17]/78 backdrop-blur-md'
+          : 'bg-[#7e7e7e6e]'
       }`}
     >
       <div
         className={`relative mx-auto flex max-w-[1600px] items-center justify-between border-b px-6 py-3 md:px-8 md:py-2.5 ${
-          isScrolled
+          isPortalInfoPage || isScrolled
             ? "border-white/12 text-[#f4efe6]"
             : "border-white/18 text-[#f4efe6]"
         }`}
@@ -69,7 +72,7 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
 
         <div className="hidden items-center gap-2 md:flex">
           <motion.a
-            href="https://lindico-portal.pages.dev"
+            href="/client-portal-info"
             whileHover={{ y: -1 }}
             whileTap={{ scale: 0.98 }}
             className="group relative inline-flex h-[38px] items-center justify-center px-4 text-[10px] uppercase tracking-[0.18em] text-white/72 transition-colors hover:text-white"
@@ -122,6 +125,13 @@ export function Navigation({ pathname = '/' }: NavigationProps) {
                 {item.label}
               </a>
             ))}
+            <a
+              href="/client-portal-info"
+              className="text-base uppercase tracking-[0.18em] text-white"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Client Portal
+            </a>
             <a
               href={isHomePage ? "#contact" : "/#contact"}
               className="inline-flex w-fit border border-white/35 px-5 py-3 text-[11px] uppercase tracking-[0.18em] text-white"

@@ -87,6 +87,88 @@ const serviceCardTests = [
   },
 ];
 
+const portalButtonMocks = [
+  {
+    name: 'Editorial',
+    description:
+      'Text-first with a restrained right arrow and a slightly stronger border presence.',
+    buttonClassName:
+      'mt-8 inline-flex items-center justify-center gap-2 border border-[#bba98f] px-6 py-3 text-[11px] uppercase tracking-[0.18em] text-[#2e2822] transition-colors hover:bg-[#201c17] hover:text-[#f4efe6]',
+    content: (
+      <>
+        <span>Explore The Portal</span>
+        <ArrowUpRight size={15} />
+      </>
+    ),
+  },
+  {
+    name: 'Architectural',
+    description:
+      'A split-button treatment with a dedicated arrow chamber and a more structured feel.',
+    buttonClassName:
+      'mt-8 inline-flex items-stretch border border-[#bba98f] text-[11px] uppercase tracking-[0.18em] text-[#2e2822] transition-colors hover:bg-[#201c17] hover:text-[#f4efe6]',
+    content: (
+      <>
+        <span className="flex items-center px-6 py-3">Explore The Portal</span>
+        <span className="flex items-center justify-center border-l border-current px-4">
+          <ArrowUpRight size={15} />
+        </span>
+      </>
+    ),
+  },
+  {
+    name: 'Private Member',
+    description:
+      'A softer filled action with a framed arrow capsule that feels quieter and more exclusive.',
+    buttonClassName:
+      'mt-8 inline-flex items-center justify-center gap-3 border border-[#c5b49b] bg-[#ede3d5] px-5 py-2.5 text-[11px] uppercase tracking-[0.2em] text-[#2e2822] transition-colors hover:bg-[#201c17] hover:text-[#f4efe6]',
+    content: (
+      <>
+        <span>Explore The Portal</span>
+        <span className="inline-flex h-7 w-7 items-center justify-center border border-current">
+          <ArrowUpRight size={13} />
+        </span>
+      </>
+    ),
+  },
+];
+
+const portalEffectMocks = [
+  {
+    name: 'Ivory Wash',
+    description:
+      'A near-white vertical wash that lifts the surface gently without changing the button silhouette.',
+    panelClassName:
+      'border border-[#d9cdbd] bg-[linear-gradient(180deg,rgba(249,245,238,0.98),rgba(239,231,219,0.9))] p-8',
+    buttonClassName:
+      'group relative mt-8 inline-flex overflow-hidden border border-[#bba98f] bg-[linear-gradient(180deg,rgba(255,253,249,0.98),rgba(244,237,228,0.92))] text-[11px] uppercase tracking-[0.18em] text-[#2e2822] shadow-[inset_0_1px_0_rgba(255,255,255,0.62)] transition-colors hover:bg-[linear-gradient(180deg,rgba(255,254,251,1),rgba(242,234,223,0.96))] hover:text-[#2e2822]',
+    innerClassName:
+      'flex items-center justify-center gap-2 px-6 py-3 transition-transform duration-150 ease-out group-hover:translate-x-[5px]',
+    barClassName:
+      'pointer-events-none absolute bottom-0 left-0 top-0 w-1 bg-[#b6a58e] opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100',
+  },
+  {
+    name: 'Arrow Halo',
+    description:
+      'A cleaner button with the emphasis concentrated around the arrow zone through a soft radial halo.',
+    panelClassName: 'border border-[#d9cdbd] bg-[#f3ece0] p-8',
+    buttonClassName:
+      'mt-8 inline-flex items-center justify-center gap-3 border border-[#bba98f] bg-[#f5eee3] px-5 py-3 text-[11px] uppercase tracking-[0.18em] text-[#2e2822] shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] transition-colors hover:bg-[#201c17] hover:text-[#f4efe6]',
+    arrowWrapClassName:
+      'inline-flex h-7 w-7 items-center justify-center bg-[radial-gradient(circle,rgba(214,197,171,0.58)_0%,rgba(214,197,171,0.18)_55%,transparent_78%)]',
+  },
+  {
+    name: 'Light Sweep',
+    description:
+      'A restrained hover-sheen concept using a soft directional highlight layered over the button surface.',
+    panelClassName: 'border border-[#d9cdbd] bg-[#f3ece0] p-8',
+    buttonClassName:
+      'group relative mt-8 inline-flex items-center justify-center gap-2 overflow-hidden border border-[#bba98f] bg-[linear-gradient(180deg,rgba(246,239,229,0.92),rgba(234,224,210,0.86))] px-6 py-3 text-[11px] uppercase tracking-[0.18em] text-[#2e2822] shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] transition-colors hover:bg-[#201c17] hover:text-[#f4efe6]',
+    sheenClassName:
+      'pointer-events-none absolute inset-y-0 left-[-30%] w-[38%] skew-x-[-20deg] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.38),transparent)] opacity-70',
+  },
+];
+
 export function DeveloperPage() {
   const [activeToken, setActiveToken] = useState<(typeof colorRows)[number] | null>(
     null,
@@ -174,7 +256,7 @@ export function DeveloperPage() {
                         initial={{ opacity: 0, y: 18, scale: 0.96 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 14, scale: 0.98 }}
-                        transition={{ duration: 0.22, ease: 'easeOut' }}
+                        transition={{ ease: [0.32, 0.72, 0, 1] }}
                         className="pointer-events-none absolute bottom-4 right-4 z-10 hidden w-72 overflow-hidden border border-[#d9cdbd] bg-[#201c17] text-[#f4efe6] shadow-[0_24px_50px_rgba(32,28,23,0.18)] md:block"
                       >
                         <div
@@ -230,14 +312,14 @@ export function DeveloperPage() {
                 <motion.div
                   key={card.title}
                   whileHover={{ y: -4 }}
-                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ ease: [0.22, 1, 0.36, 1] }}
                   className="group relative overflow-hidden bg-[#fbf8f2] transition-colors hover:bg-[#f3ebde]"
                 >
                   <motion.div
                     aria-hidden="true"
                     initial={{ opacity: 0, y: 10 }}
                     whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.24, ease: 'easeOut' }}
+                    transition={{ ease: [0.32, 0.72, 0, 1] }}
                     className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#e6dac8]/80 to-transparent"
                   />
                   <div className="relative z-10 flex min-h-[21rem] flex-col p-8">
@@ -267,6 +349,115 @@ export function DeveloperPage() {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f8f4ec] py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="inline-flex items-center gap-3">
+            <span className="h-px w-10 bg-[#b6a58e]" />
+            <p className="text-sm uppercase tracking-[0.24em] text-[#8c7c69]">
+              Portal CTA Lab
+            </p>
+          </div>
+          <h2 className="mt-5 text-4xl tracking-[-0.04em] text-[#1d1b18] md:text-5xl font-serif">
+            Three button directions for the client portal panel
+          </h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-[#5d5145]">
+            Each mock keeps the same parent box language from the live process
+            section, but changes the CTA treatment so we can compare which one
+            feels the most elevated.
+          </p>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {portalButtonMocks.map((mock) => (
+              <div
+                key={mock.name}
+                className="border border-[#d9cdbd] bg-[#f3ece0] p-8"
+              >
+                <p className="text-xs uppercase tracking-[0.22em] text-[#8c7c69]">
+                  Your Client Portal
+                </p>
+                <p className="mt-4 text-xl leading-8 text-[#2e2822] font-serif">
+                  It&apos;s a sentimental commitment for us as much as it&apos;s
+                  for you. We want you to feel like you made the right choice
+                  every step of the way.
+                </p>
+                <p className="mt-4 text-xl leading-8 text-[#2e2822] font-serif">
+                  Our client portal is designed to support that by giving you
+                  full control and visibility of the project.
+                </p>
+                <div className={mock.buttonClassName}>{mock.content}</div>
+                <div className="mt-8 border-t border-[#d8ccbc] pt-4">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#8c7c69]">
+                    {mock.name}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-[#5d5145]">
+                    {mock.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#efe7db] py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="inline-flex items-center gap-3">
+            <span className="h-px w-10 bg-[#b6a58e]" />
+            <p className="text-sm uppercase tracking-[0.24em] text-[#8c7c69]">
+              Portal Effects Lab
+            </p>
+          </div>
+          <h2 className="mt-5 text-4xl tracking-[-0.04em] text-[#1d1b18] md:text-5xl font-serif">
+            Gradient and effect directions for the portal CTA
+          </h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-[#5d5145]">
+            These keep the button layout more restrained and test whether
+            subtle tonal effects can make the portal action feel more elevated.
+          </p>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {portalEffectMocks.map((mock) => (
+              <div key={mock.name} className={mock.panelClassName}>
+                <p className="text-xs uppercase tracking-[0.22em] text-[#8c7c69]">
+                  Your Client Portal
+                </p>
+                <p className="mt-4 text-xl leading-8 text-[#2e2822] font-serif">
+                  It&apos;s a sentimental commitment for us as much as it&apos;s
+                  for you. We want you to feel like you made the right choice
+                  every step of the way.
+                </p>
+                <p className="mt-4 text-xl leading-8 text-[#2e2822] font-serif">
+                  Our client portal is designed to support that by giving you
+                  full control and visibility of the project.
+                </p>
+                <div className={mock.buttonClassName}>
+                  {'barClassName' in mock && mock.barClassName ? (
+                    <span className={mock.barClassName} />
+                  ) : null}
+                  {'sheenClassName' in mock && mock.sheenClassName ? (
+                    <span className={mock.sheenClassName} />
+                  ) : null}
+                  <div className={`relative z-10 ${mock.innerClassName ?? 'flex items-center justify-center gap-2'}`}>
+                    <span>Explore The Portal</span>
+                    <span className={mock.arrowWrapClassName ?? ''}>
+                      <ArrowUpRight size={15} />
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-8 border-t border-[#d8ccbc] pt-4">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#8c7c69]">
+                    {mock.name}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-[#5d5145]">
+                    {mock.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

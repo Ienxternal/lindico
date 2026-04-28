@@ -45,7 +45,7 @@ export function Projects() {
 
   return (
     <section
-      id="projects"
+      id="collections"
       ref={ref}
       className="bg-[#201c17] py-28 text-[#f4efe6]"
     >
@@ -55,12 +55,12 @@ export function Projects() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="inline-flex items-center gap-3">
               <span className="h-px w-5 bg-[#6e6255]" />
               <p className="text-sm uppercase tracking-[0.24em] text-[#b6a792]">
-                Signature Work
+                Signature Projects
               </p>
               <span className="h-px w-5 bg-[#6e6255]" />
             </div>
@@ -104,7 +104,7 @@ export function Projects() {
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                transition={{ ease: [0.22, 1, 0.36, 1] }}
                 className={`group grid gap-10 border-t border-[#4b4238] pt-10 md:grid-cols-2 ${
                   index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
                 }`}
@@ -115,9 +115,9 @@ export function Projects() {
                   <span className="pointer-events-none absolute left-0 top-12 z-10 h-px w-10 bg-white/25" />
                   <span className="pointer-events-none absolute right-0 bottom-12 z-10 h-px w-10 bg-white/25" />
                   <motion.div
-                    style={{ y: imageY }}
+                    // style={{ y: imageY }}
                     whileHover={{ scale: 1.025 }}
-                    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ ease: [0.3, 0.05, 0.45, 1] }}
                     className="h-full w-full [will-change:transform]"
                   >
                     <motion.img
@@ -152,9 +152,12 @@ export function Projects() {
                     ].map((item) => (
                       <div
                         key={item}
-                        className="border border-[#4b4238] p-4 text-sm leading-6 text-[#c8bca8]"
+                        className="group/info relative overflow-hidden border border-[#4b4238]"
                       >
-                        {item}
+                        <span className="pointer-events-none absolute bottom-0 left-0 top-0 w-1 bg-[#b6a58e] opacity-0 transition-opacity duration-150 ease-out group-hover/info:opacity-100" />
+                        <div className="p-4 text-sm leading-6 text-[#c8bca8] transition-transform duration-150 ease-out will-change-transform group-hover/info:translate-x-[5px]">
+                          {item}
+                        </div>
                       </div>
                     ))}
                   </div>

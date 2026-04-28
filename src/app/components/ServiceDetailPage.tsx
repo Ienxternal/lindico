@@ -13,7 +13,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
             className="max-w-3xl"
           >
             <div className="inline-flex items-center gap-3">
@@ -47,7 +47,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9 }}
+            transition={{ ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden border border-white/10"
           >
             <img
@@ -65,7 +65,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="inline-flex items-center gap-3">
               <span className="h-px w-10 bg-[#b6a58e]" />
@@ -88,7 +88,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
+                transition={{ delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 className="grid gap-5 bg-[#fbf8f2] p-8 md:grid-cols-[120px_1fr]"
               >
                 <p className="text-sm uppercase tracking-[0.18em] text-[#8c7c69]">
@@ -118,7 +118,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: index * 0.08 }}
+                transition={{ delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 className="overflow-hidden border border-[#d8ccbc] bg-[#fbf8f2]"
               >
                 <img

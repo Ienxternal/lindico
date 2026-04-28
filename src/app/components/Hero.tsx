@@ -24,13 +24,14 @@ export function Hero() {
           className="h-[120vh] w-full bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, rgba(18,16,14,0.34) 0%, rgba(18,16,14,0.18) 18%, rgba(18,16,14,0.12) 38%, rgba(18,16,14,0.38) 68%, rgba(18,16,14,0.72) 100%), radial-gradient(circle at center, rgba(20,18,16,0.42) 0%, rgba(20,18,16,0.2) 28%, rgba(20,18,16,0.06) 52%, rgba(20,18,16,0) 72%), url('https://images.pexels.com/photos/7031413/pexels-photo-7031413.jpeg')",
+              "linear-gradient(180deg, rgba(14,12,10,0.52) 0%, rgba(20,17,14,0.28) 20%, rgba(28,24,20,0.14) 40%, rgba(36,31,25,0.28) 62%, rgba(27,22,18,0.74) 100%), radial-gradient(circle at 50% 34%, rgba(238,228,211,0.18) 0%, rgba(223,208,186,0.08) 20%, rgba(20,18,16,0.08) 44%, rgba(20,18,16,0) 68%), linear-gradient(120deg, rgba(205,191,168,0.16) 0%, rgba(205,191,168,0.06) 24%, rgba(24,20,17,0) 52%), url('https://images.pexels.com/photos/7031413/pexels-photo-7031413.jpeg')",
             backgroundPosition: "center center",
           }}
         />
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(12,10,9,0.12)_0%,rgba(12,10,9,0.03)_22%,rgba(12,10,9,0.03)_78%,rgba(12,10,9,0.12)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(12,10,9,0.18)_0%,rgba(12,10,9,0.04)_20%,rgba(12,10,9,0.03)_80%,rgba(12,10,9,0.16)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(18,16,14,0.36)_0%,rgba(18,16,14,0.2)_22%,rgba(18,16,14,0.08)_38%,rgba(18,16,14,0)_60%)]" />
 
       <motion.div
         style={{ opacity, y: contentY }}
@@ -40,20 +41,22 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-4xl text-center"
           >
             <p className="mb-5 text-[11px] uppercase tracking-[0.28em] text-[#e7dbc8]/78 md:mb-6">
               Design & Build Collective
             </p>
-            <h1 className="text-[3.2rem] leading-[0.9] tracking-[-0.05em] text-white sm:text-[4.2rem] md:text-[6.2rem] lg:text-[7.4rem] font-serif">
+            <h1
+              className="text-[3.2rem] leading-[0.9] tracking-[-0.05em] text-[#fffaf2] sm:text-[4.2rem] md:text-[6.2rem] lg:text-[7.4rem] font-serif"
+              style={{ textShadow: '0 2px 12px rgba(12, 10, 9, 0.28)' }}
+            >
               Luxury,
               <br />
               Defined by You.
             </h1>
-            <p className="mx-auto mt-5 max-w-xl text-sm uppercase tracking-[0.22em] text-[#e8dcc9]/82 md:text-[15px]">
-              Refined Architecture + Tailored Remodels + Outdoor Living + Smart
-              Integration
+            <p className="mx-auto font-serif mt-5 max-w-xl text-sm tracking-[0.05em] text-[#e8dcc9]/82 md:text-[20px]">
+              Built for memories. Designed to transcend.
             </p>
             <div className="mt-8 flex justify-center">
               <motion.a
@@ -72,4 +75,3 @@ export function Hero() {
     </section>
   );
 }
-
